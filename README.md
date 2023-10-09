@@ -1,6 +1,6 @@
 # Ansible Role: Ruby
 
-[![CI](https://github.com/shaneholloman-org/ansible-role-ruby/actions/workflows/ci.yml/badge.svg)](https://github.com/shaneholloman-org/ansible-role-ruby/actions/workflows/ci.yml)
+[![CI](https://github.com/shaneholloman/ansible-role-ruby/actions/workflows/ci.yml/badge.svg)](https://github.com/shaneholloman/ansible-role-ruby/actions/workflows/ci.yml)
 
 Installs Ruby and bundler gem on Linux.
 
@@ -75,4 +75,3 @@ MIT / BSD
 ## Author Information
 
 This role was created in 2023
-

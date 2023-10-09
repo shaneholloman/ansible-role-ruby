@@ -1,4 +1,5 @@
 ---
+# TODO: update Molecule distro matrix
 name: CI
 "on":
   workflow_dispatch:
@@ -48,9 +49,6 @@ jobs:
             playbook: converge.yml
           - distro: debian11
             playbook: converge.yml
-
-          - distro: centos7
-            playbook: source-install.yml
           - distro: ubuntu2004
             playbook: source-install.yml
 
