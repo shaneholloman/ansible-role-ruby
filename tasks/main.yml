@@ -8,12 +8,12 @@
   when: ruby_packages is not defined
 
 # Include OS-specific installation tasks.
-- include_tasks: setup-RedHat.yml
+- include_tasks: setup-redhat.yml
   when:
     - not ruby_install_from_source
     - ansible_os_family == 'RedHat'
 
-- include_tasks: setup-Debian.yml
+- include_tasks: setup-debian.yml
   when:
     - not ruby_install_from_source
     - ansible_os_family == 'Debian'
