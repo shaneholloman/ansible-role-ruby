@@ -8,18 +8,20 @@
   when: ruby_packages is not defined
 
 # Include OS-specific installation tasks.
-- ansible.builtin.include_tasks: setup-redhat.yml
+- name: Include setup-redhat.yml when conditions are met
+  ansible.builtin.include_tasks: setup-redhat.yml
   when:
     - not ruby_install_from_source
     - ansible_os_family == 'RedHat'
 
-- ansible.builtin.include_tasks: setup-debian.yml
+- name: Include setup-debian.yml when conditions are met
+  ansible.builtin.include_tasks: setup-debian.yml
   when:
     - not ruby_install_from_source
     - ansible_os_family == 'Debian'
 
-# Install ruby from source when ruby_install_from_source is true.
-- ansible.builtin.include_tasks: install-from-source.yml
+- name: Install ruby from source when ruby_install_from_source is true
+  ansible.builtin.include_tasks: install-from-source.yml
   when: ruby_install_from_source
 
 - name: Add user installed RubyGems bin directory to global $PATH.
@@ -30,14 +32,14 @@
 
 # Install Bundler and configured gems.
 - name: Install Bundler.
-  gem:
+  community.general.gem:
     name: bundler
     state: present
     user_install: false
   when: ruby_install_bundler
 
 - name: Install configured gems.
-  gem:
+  community.general.gem:
     name: "{{ item.name | default(item) }}"
     version: "{{ item.version | default(omit) }}"
     user_install: "{{ item.user_install | default(omit) }}"

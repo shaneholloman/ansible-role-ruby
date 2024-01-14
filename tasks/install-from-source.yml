@@ -60,10 +60,9 @@
         - make install
 
     - name: Touch install-marker
-      ansible.builtin.file:
+      ansible.builtin.file:  # noqa risky-file-permissions
         path: "/var/cache/ansible/install-marker"
         state: touch
-        mode: '0644'
 
 - name: Add ruby symlinks.
   ansible.builtin.file:  # noqa risky-file-permissions
