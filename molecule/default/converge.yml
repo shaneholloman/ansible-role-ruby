@@ -11,17 +11,17 @@
 
   pre_tasks:
     - name: Update apt cache.
-      apt: update_cache=true cache_valid_time=600
+      ansible.builtin.apt: update_cache=true cache_valid_time=600
       when: ansible_os_family == 'Debian'
 
     - name: Add rubygems bin dir to system-wide $PATH.
-      copy:
+      ansible.builtin.copy:
         dest: /etc/profile.d/ruby.sh
         content: 'PATH=$PATH:{{ ruby_gems_bin_path }}'
-        mode: 0644
+        mode: '0644'
 
     - name: Don't install Bundler on CentOS 7 because of old Ruby version.
-      set_fact:
+      ansible.builtin.set_fact:
         ruby_install_bundler: false
       when:
         - ansible_os_family == 'RedHat'
@@ -32,5 +32,5 @@
 
   post_tasks:
     - name: Verify Ruby is installed.
-      command: ruby --version
+      ansible.builtin.command: ruby --version
       changed_when: false
