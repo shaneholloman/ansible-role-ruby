@@ -1,4 +1,4 @@
-# Ansible Role: Ruby
+# Ansible Role: `ruby`
 
 [![CI](https://github.com/shaneholloman/ansible-role-ruby/actions/workflows/ci.yml/badge.svg)](https://github.com/shaneholloman/ansible-role-ruby/actions/workflows/ci.yml)
 
