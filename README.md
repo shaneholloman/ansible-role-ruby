@@ -92,7 +92,7 @@ None.
 
 ## License
 
-MIT / BSD
+Unlicense
 
 ## Author Information
 
